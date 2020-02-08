@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="paral1">
+  <div id="welcome-message">
+    <h1>Welcome to the WegMenu!</h1>
+    <p>Generate meals and shopping lists on the fly
+      with given restrictions such as dietary restrictions and cost!
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- <div>
+     <video id="myVideo" controls loop muted autoplay>
+       <source src="../static/videos/Steak.mp4" type="video/mp4">
+	 Your browser does not support the video tag.
+     </video>
+</div> -->
+
+<div class="divider"></div>
+<div id="paral2"></div>
+
+<div class="split">
+  <div class="left">
+    <img src="../static/img/coffee.jpg" alt="coffee">
+  </div>
+  <div class="right">
+    <img src="../static/img/toast.jpeg" alt="coffee">
+  </div>
+</div>
+
+
+<div id="footer">Footer</div>
+{% endblock %}

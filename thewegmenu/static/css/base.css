@@ -1,23 +1,176 @@
+body, html {
+    background-image: url("/static/img/background.png");
+    background-size: cover;
+    height: 100%;
+}
+
+/* NAVBAR ----------------------------------*/
 .navbar {
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    padding: 1em 3em;
     background-color: #CE8278;
-    border-bottom: solid 1px #8A6D70;
-    font-size: 30px;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    border-bottom: 1vw #8A6D70
+    box-shadow: 0 0 5vw #8A6D70;
+    z-index: 1;
+}
+
+.navbar-nav mr-auto {
+
 }
 
 .navbar a {
     color: #F7F4EF;
 }
 
+.navbar a:hover {
+    color: yellow;
+}
+
 .navbar-toggler{
-    float:right;
+    right: 5vw;
 }
 
 .nav-item {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
-body {
-    //background-image: url("/static/img/background.jpeg");
-    background-color: #F7F4EF;
+.collapse.navbar-collapse {
+    font-size: 1em;
+}
+
+/* FOOTER ---------------------------------------*/
+#footer {
+    postiion: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2vw;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: #CE8278;
+    border-top: .05em solid #570625;	
+}
+
+/* PARALLAX --------------------------------------*/
+#paral1 {
+    border-top: .05em solid #8A6D70;
+    border-bottom: .05em solid #8A6D70;
+    background-image: url("../img/parallax1.jpeg");
+    height: 80%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#paral2 {
+    border-top: .05em solid #8A6D70;
+    border-bottom: .05em solid #8A6D70;
+    background-image: url("../img/parallax2.jpeg");
+    height: 50%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* HOME VIEW COMPONENTS --------------------------*/
+#welcome-message{
+    position: relative;
+    text-align: center;
+    background-color: #8A6D70;
+    color: white;
+    margin-top: 18%;
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1vw;
+    border-radius: 1em 2em;
+    box-shadow: 0 0 .5vw #570625;
+}
+
+#welcome-message h1 {
+    font-size: 2.5em;
+}
+#welcome-message p {
+    font-size: 1em;
+}
+
+/* CONTAINERS/CONTENT ----------------------------*/
+.divider {
+    text-align: center;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: .5vw;
+}
+
+div {
+}
+
+.container {
+    text-align: center;
+    background-color: #F0C78A;
+    color: white;
+    width: 100%;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    padding: 1vw;
+}
+
+.container h1{
+    font-size: 3em;
+    padding: 1vw;
+}
+
+.container p{
+    font-size: 1em;
+}
+
+.split {
+    font-size: 1.5em;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.left {
+    left: 0;
+    width: 50%;
+    height: 70%;
+}
+
+.left img {
+    border: .45em solid black;
+    object-fit: contain;
+    width: 100%;
+}
+
+.right {
+    right: 0;
+    width: 50%;
+    height: 70%;
+}
+
+.right img {
+    border: .5em solid black;
+    border-botton: .5em solid black;
+    width: 100%;
+}
+
+#myVideo {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: block;
+    overflow: hidden;
 }
