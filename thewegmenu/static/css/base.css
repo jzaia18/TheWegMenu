@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #CE8278;
+    border-bottom: solid 1px #8A6D70;
+    font-size: 30px;
+}
+
+.navbar a {
+    color: #F7F4EF;
+}
+
+.navbar-toggler{
+    float:right;
+}
+
+.nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+body {
+    //background-image: url("/static/img/background.jpeg");
+    background-color: #F7F4EF;
+}
