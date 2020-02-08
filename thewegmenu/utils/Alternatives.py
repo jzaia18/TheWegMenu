@@ -7,11 +7,14 @@ Takes an ingredient and swaps it for an alternative ingredient based on the user
 
 import json
 
+
 """
 checks to see if an ingredient is vegan, if not, it will return a
-vegan alternative
+vegan alternative ingredient
 """
-def vegan(ingredient:str) -> str:
+
+
+def vegan(ingredient: str) -> str:
     replace = {'milk': 'soymilk',
                'egg': 'Ener-G egg replacer',
                'beef': 'tofu',
@@ -20,19 +23,27 @@ def vegan(ingredient:str) -> str:
                'pork': 'tofu',
                'gelatin': 'corn starch',
                'honey': 'agave nectar',
-               'cheese':'Nutritional yeast flakes',
+               'cheese': 'Nutritional yeast flakes',
                'mayonnaise': 'grape seed oil mayonnaise',
-                'ice cream': 'sherbet'
-                }
+               'ice cream': 'sherbet'}
     for i in replace:
         if i == ingredient:
             return replace[i]
 
+
+
     return ingredient
 
 
-def main(recipe:list, pref:list) -> None:
-    ingredients = {}
+"""
+Facilitates the replacement of ingredients in a recipe to match dietary preferences. 
+
+@param recipe : a list of the ingredients in the recipe
+@param pref : dietary preferences used to replace the recipe ingredients with ingredients that fit the preferences
+"""
+
+
+def main(recipe: list, pref: list) -> None:
 
     for i in len(recipe):
         if 'vegan' in pref:
