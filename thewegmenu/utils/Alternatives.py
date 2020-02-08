@@ -4,9 +4,7 @@ Author err1482 : Emerald Rafferty
 Takes an ingredient and swaps it for an alternative ingredient based on the user dietary preferences
 
 """
-
-import json
-
+from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 """
 checks to see if an ingredient is vegan, if not, it will return a
@@ -26,11 +24,16 @@ def vegan(ingredient: str) -> str:
                'cheese': 'Nutritional yeast flakes',
                'mayonnaise': 'grape seed oil mayonnaise',
                'ice cream': 'sherbet'}
-    for i in replace:
-        if i == ingredient:
-            return replace[i]
+
+    sku = get_skus(ingredient)
+    food_info = get_food_data_by_sku(sku[0])
+    food = get_food_data(ingredient)
 
 
+    if 'ingredients' in food_info:
+        for i in food_info['ingredients']:
+            if i in replace:
+               print("here")
 
     return ingredient
 
@@ -43,12 +46,13 @@ Facilitates the replacement of ingredients in a recipe to match dietary preferen
 """
 
 
-def main(recipe: list, pref: list) -> None:
+def main() -> None:
+ #   recipe: list, pref: list
+ #    for i in len(recipe):
+ #        if 'vegan' in pref:
+ #            i = vegan(i)
 
-    for i in len(recipe):
-        if 'vegan' in pref:
-            i = vegan(i)
-
+    vegan('triscuit')
     # with open('ingredients.txt', 'finalRecipe') as outfile:
     #     json.dump(ingredients, outfile)
 
