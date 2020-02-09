@@ -18,6 +18,7 @@
     width: 92%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10vw;
 }
 
 #weekly-calendar th {
@@ -74,4 +75,29 @@
 
 #meal-plans input[type=submit]:hover {
     background-color: red;
+}
+
+/* SHOPPING LIST --------------------------------------*/
+
+#shopping-list {
+    position: relative;
+    text-align: center;
+    top: 5vw;
+}
+
+#shopping-list h2 {
+    margin-top: 0vw;
+}
+
+#list {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#list ul {
+
+}
+
+#list ul li {
+
 }
