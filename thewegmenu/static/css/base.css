@@ -261,3 +261,10 @@ div {
 .search button:hover {
     background-color: #F2AC89;
 }
+
+@media only screen and (max-width: 750px){
+    .paral1, .paral2 {
+	height: 20%;
+    }
+
+}
