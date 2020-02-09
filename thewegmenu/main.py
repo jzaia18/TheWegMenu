@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 from utils import mongo_utils
-import os
+import os, json
 
 app = Flask(__name__)
-app.secret_key = os.urandom(16)
+DIR = os.path.dirname(__file__) or '.'
+app.secret_key = json.loads(open(DIR + "/secrets.JSON").read())['pythonsecretkey']
 
 @app.route("/")
 def root():
@@ -36,9 +37,9 @@ def auth_login():
     password = request.form["password"]
     if mongo_utils.authenticate(username, password):
         session["user"] = username
-    else:
-        flash("invalid user or password")
-    return redirect(url_for("root"))
+        return redirect(url_for("root"))
+    flash("invalid user or password")
+    return redirect(url_for("login"))
 
 @app.route("/signup")
 def signup():
@@ -52,9 +53,9 @@ def auth_signup():
     password = request.form["password"]
     if mongo_utils.register(username, password):
         session["user"] = username
-    else:
-        flash("user name already taken")
-    return redirect(url_for("root"))
+        return redirect(url_for("root"))
+    flash("user name already taken")
+    return redirect(url_for("signup"))
 
 @app.route('/logout')
 @require_login

@@ -1,0 +1,23 @@
+#weekly-calendar {
+    position: relative;
+    text-align: center;
+    top: 5vw;
+}
+
+#weekly-calendar table, th, td {
+    padding: 1vw 4vw;
+    margin-right: auto;
+    margin-left: auto;
+    border: thin solid black;
+    margin-top: 3vw;
+    font-size: 1em;
+}
+
+#weekly-calendar table {
+    border-radius: 1em 1em;
+}
+
+#weekly-calendar th {
+    background-color: #CE8278;
+    color: #570625;
+}

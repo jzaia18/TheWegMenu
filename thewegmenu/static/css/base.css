@@ -5,9 +5,10 @@ html{
 
 body {
     font-family: "Times New Roman", Times, serif;
-    background-image: url("/static/img/background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    //background-image: url("/static/img/background.png");
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    background-color: #F7F4EF;
     height: 100%;
 }
 
@@ -17,7 +18,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: .5em 1em;
+    padding: 1em 2em;
     background-color: #CE8278;
     font-size: 1.25em;
     font-weight: bold;
@@ -28,6 +29,7 @@ body {
 .navbar-links {
     position: fixed;
     right: 0vw;
+    top: 1vw;
     overflow: hidden;
     margin-right: 2vw;
     display: inline-flex;
@@ -36,20 +38,27 @@ body {
 }
 
 .navbar-links li {
-    float: right;
+    right: 0vw;
 }
 
 .navbar a {
-    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #F0C78A;
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;
     margin-right: .5em;
     padding: 0em .5em;
     color: #F7F4EF;
     text-decoration: none;
 }
 
+.navbar p {
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;
+    margin-right: .5em;
+    padding: 0em .5em;
+    color: white;
+}
+
 .navbar-links li a:hover {
     color: yellow;
-    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #F0C78A;
+    text-decoration: underline;
 }
 
 .navbar-toggler{
@@ -66,13 +75,7 @@ body {
 }
 
 #brand {
-    display: flex;
-    width: auto;
-}
-
-#logo {
-    height: 3vw;
-    margin-right: .5vw;
+    width: 100%;
 }
 
 /* FOOTER ---------------------------------------*/
