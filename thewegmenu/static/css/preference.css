@@ -11,8 +11,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 70vw;
-    height: 25vw;
-    padding: .5vw;
+    height: auto;
+    padding: 1vw;
     text-align: center;
     background-color: #F7F4EF;
     color: rgba(87,6,37,1);
