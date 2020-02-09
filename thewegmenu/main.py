@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
-from utils import mongo_utils
+from utils import mongo_utils, wegmans_utils
 import os, json
 
 app = Flask(__name__)
 DIR = os.path.dirname(__file__) or '.'
 app.secret_key = json.loads(open(DIR + "/secrets.JSON").read())['pythonsecretkey']
 
-
+DAYS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
 
 def require_login(f):
     @wraps(f)
@@ -68,7 +68,15 @@ def logout():
 @app.route('/calendar')
 @require_login
 def calendar():
-    return render_template('calendar.html')
+    cal = mongo_utils.get_calendar(session['user'])
+
+    for day in DAYS:
+        if day in cal:
+            cal[day] = [mongo_utils.get_recipe_by_id(rid) for rid in cal[day]]
+        else:
+            cal[day] = []
+
+    return render_template('calendar.html', calendar = cal)
 
 @app.route('/search', methods = ['POST'])
 @require_login
@@ -79,6 +87,9 @@ def search():
 
     query = request.form['query']
     results = mongo_utils.get_recipes_by_food(query)
+
+    for hit in results:
+        pass
 
     return render_template('search.html', results=results, query=query)
 

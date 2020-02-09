@@ -8,25 +8,35 @@
 
 {% block body %}
 <div id="weekly-calendar">
+
+  {% if calendar == None %}
+  <h3> You don't have any recipes right now, try searching for some recipes! </h3>
+  {% else %}
+  {% set DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %}
   <table>
     <tr>
-      <th>Sunday</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-      <th>Friday</th>
-      <th>Saturday</th>
+      {% for day in DAYS %}
+      <th>{{day}}</th>
+      {% endfor %}
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      {% for day in DAYS %}
+      <td>
+        <ul>
+          {% if day.upper() in calendar %}
+
+          {% for recipe in calendar[day.upper()] %}
+          <li>
+            {{recipe['label']}}
+          </li>
+          {% endfor %}
+
+          {% endif %}
+        </ul>
+      </td>
+      {% endfor %}
     </tr>
   </table>
+  {% endif %}
 </div>
 {% endblock %}

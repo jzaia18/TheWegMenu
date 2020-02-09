@@ -1,4 +1,5 @@
 import pymongo, json, hashlib, os, random, re, sys
+from bson.objectid import ObjectId
 
 DIR = os.path.dirname(__file__) or '.'
 dbname = json.loads(open(DIR + "/../secrets.JSON").read())['mongo']
@@ -41,6 +42,9 @@ def get_recipes_by_food(food, results=20):
     result = list(recipes.find({"label": {"$regex": re.compile(str(food), re.IGNORECASE)}}))
     random.shuffle(result)
     return result[:results]
+
+def get_recipe_by_id(recipe_id):
+    return recipes.find_one({"_id": ObjectId(recipe_id)})
 
 def add_recipe_to_calendar(recipe_id, day, username):
     day = str(day).upper()
@@ -90,5 +94,6 @@ if __name__ == '__main__':
 
     # print(*[x['label']+"\n" for x in get_recipes_by_food(sys.argv[1])])
 
-    add_recipe_to_calendar(16, "monday", "bob")
+    #add_recipe_to_calendar(16, "monday", "bob")
     #remove_recipe_from_calendar(12, "sunday", "bob")
+    print(get_recipe_by_id("5e3f9b8d25bf60463a218b9c"))
