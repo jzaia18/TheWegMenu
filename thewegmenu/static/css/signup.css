@@ -1,4 +1,4 @@
-.login {
+.signup {
     postion: relative;
     text-align: left;
     background-color: #F0C78A;
@@ -6,24 +6,24 @@
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 14vw;
-    margin-bottom: 13vw;
+    margin-top: 12vw;
+    margin-bottom: 11vw;
     padding: 3vw 2vw;
     border-radius: 1vw 1vw;
     box-shadow: 0 0 .1vw #8A6D70;
 }
 
-.login h1 {
+.signup h1 {
     font-size: 2em;
     text-align: center;
     color: #570625;
 }
 
-.login label {
+.signup label {
     color: #570625;
 }
 
-.login button {
+.signup button {
     font-size: 1em;
     float: right;
 }

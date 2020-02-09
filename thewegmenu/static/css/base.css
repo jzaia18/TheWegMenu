@@ -1,18 +1,23 @@
-body, html {
+html{
+    height: 100%;
+}
+
+body{
     background-image: url("/static/img/background.png");
+    background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
 }
 
 /* NAVBAR ----------------------------------*/
 .navbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     overflow: hidden;
     width: 100%;
-    padding: 1em 3em;
+    padding: 1em 2em;
     background-color: #CE8278;
-    font-size: 1em;
+    font-size: 1.25em;
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
     border-bottom: 1vw #8A6D70
@@ -45,13 +50,18 @@ body, html {
     font-size: 1em;
 }
 
+#logo {
+    width: 3vw;
+    margin-right: .5vw;
+}
+
 /* FOOTER ---------------------------------------*/
 .footer {
-    postiion: absolute;
+    postion: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 2vw;
+    padding: 1.5vw;
     color: white;
     font-size: 1.5em;
     text-align: center;
