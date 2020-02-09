@@ -8,7 +8,7 @@ def find_weggie(food: str) -> tuple:
 
     food = food.split()
     food = food[2:]
-    food = food.join()
+    food = " ".join(food)
     food = get_food_data(food)
 
     if not food or not food[0]:

@@ -9,16 +9,12 @@ from utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 
 def vegan(ingredient) -> bool:
-
     if has_meat(ingredient):
         return False
-
     if has_dairy(ingredient):
         return False
-
     if has_egg(ingredient):
         return False
-
     return True
 
 
