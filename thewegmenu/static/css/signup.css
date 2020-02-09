@@ -2,10 +2,16 @@ html {
     height: auto;
 }
 
+body {
+    background-image: url("../img/signup.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .signup {
-    postion: relative;
+    postion: absolute;
     text-align: left;
-    background-color: #F0C78A;
+    background-color: #8A6D70;
     color: white;
     width: 50%;
     margin-left: auto;
@@ -18,16 +24,29 @@ html {
 }
 
 .signup h1 {
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;	
     font-size: 2em;
     text-align: center;
-    color: #570625;
+    color: white;
 }
 
 .signup label {
-    color: #570625;
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;
+    color: white;
 }
 
-.signup button {
+.signup button, .signup button:disabled {
+    color: white;
+    position: relative;
+    background-color: #CE8278;
+    border: #CE8278;
     font-size: 1em;
     float: right;
+    margin-bottom: .25vw;
+}
+
+.signup button:hover, .signup button:active {
+    background-color: #F2AC89;
+    border: #F2AC89;
+    box-shadow: none;
 }

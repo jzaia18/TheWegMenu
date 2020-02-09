@@ -1,17 +1,35 @@
 {% extends "base.html" %}
 
+{% block title %}Search Results{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search.css') }}">
+{% endblock %}
+
+
 {% block body %}
 <br />
 <br />
 <br />
-<div>
-  <h3> Results for: {{query}} </h3>
-  <ul>
+<div class="search-results">
+  <h2><u> Results for:</u> " {{query}} "</h2><br>
+  <table>
+    <tr>
+      <th> Image </th>
+      <th> Item </th>
+      <th> Health Labels </th>
+    </tr>
     {% for result in results %}
-    <li>
-      {{result['label']}}
-    </li>
+    <tr>
+      <td><img class="search-images" src={{result['image']}} alt={{result['label']}}></td>
+      <td><a href={{result['url']}} class="search-item"> {{result['label']}} </a></td>
+      <td class="search-labels">
+	{% for label in result['healthLabels'] %}
+	{{label}},
+	{% endfor %}
+      </td>
+    </tr>
     {% endfor %}
-  </ul>
+  </table>
 </div>
 {% endblock %}

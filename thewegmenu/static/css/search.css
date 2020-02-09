@@ -1,0 +1,51 @@
+body {
+    background-color:  #F7F4EF;
+}
+
+.search-results {
+    margin: 5%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-results h2 {
+    font-size: 2em;
+}
+
+.search-results table, th, td {
+    background-color: white;
+    font-size: 1.25vw;
+    text-align: center;
+    border: thin solid brown;
+}
+
+.search-results th {
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;
+    background-color: #CE8278;
+    color: white;
+    padding: .5vw;
+}
+
+
+.search-results table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-images {
+    border: thin solid #570625;
+    width: 10vw;
+    margin: 1vw;
+}
+
+.search-item {
+    margin: 1vw;
+    color: black;
+    font-size: 1vw;
+}
+
+.search-labels {
+    font-size: .75em;
+}
