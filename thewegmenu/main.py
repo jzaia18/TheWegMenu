@@ -89,8 +89,8 @@ def search():
     query = request.form['query']
     results = mongo_utils.get_recipes_by_food(query, results=5)
 
-    # for hit in results:
-    #     hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
+    for hit in results:
+        hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
 
     return render_template('search.html', results=results, query=query)
 
