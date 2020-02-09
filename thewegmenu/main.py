@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 from utils import mongo_utils
-import os
+import os, json
 
 app = Flask(__name__)
-app.secret_key = os.urandom(16)
+DIR = os.path.dirname(__file__) or '.'
+app.secret_key = json.loads(open(DIR + "/secrets.JSON").read())['pythonsecretkey']
 
 @app.route("/")
 def root():
