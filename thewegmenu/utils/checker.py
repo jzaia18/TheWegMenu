@@ -20,7 +20,7 @@ def has_soy(food_info) -> bool:
 
 def has_egg(food_info) -> bool:
     for i in food_info['ingredients']:
-        if 'egg' in i.lower():
+        if 'egg' in i.lower() and 'veg' not in i.lower():
             return True
     return False
 
@@ -51,7 +51,7 @@ def has_nuts(food_info) -> bool:
 
 
 def has_meat(food_info) -> bool:
-    products = {'chicken', 'beef', 'pork', 'bacon', 'enzymes', 'meat'}
+    products = {'chicken', 'beef', 'pork', 'bacon', 'enzymes', 'meat', 'fish'}
     for i in food_info['ingredients']:
         i = i.lower()
         for j in products:
