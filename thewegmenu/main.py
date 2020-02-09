@@ -38,7 +38,7 @@ def auth_login():
     if mongo_utils.authenticate(username, password):
         session["user"] = username
         return redirect(url_for("root"))
-    flash("invalid user or password")
+    flash("Invalid user or password. Please try again.")
     return redirect(url_for("login"))
 
 @app.route("/signup")

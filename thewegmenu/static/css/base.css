@@ -78,7 +78,7 @@ body {
     width: 100%;
 }
 
-/* FOOTER ---------------------------------------*/
+/* FOOTER ---------------------------------------
 .footer {
     font-family: "Times New Roman", Times, serif;
     postion: absolute;
@@ -91,30 +91,27 @@ body {
     text-align: center;
     background: linear-gradient(90deg, rgba(206,130,120,1) 0%, rgba(87,6,37,1) 65%, rgba(2,0,36,1) 100%);
     background-color: #570625;;
-}
+}*/
 
 /* PARALLAX --------------------------------------*/
 #paral1 {
     transition-timing-function: ease-in-out;
-    -webkit-transition: 3s;
-    background-image: url("../img/parallax1.jpeg");
+    background-image: url("../img/parallax1-hover.jpeg");
     height: 80%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-#paral1:hover {
+/*#paral1:hover, #paral1:active {
     transition-timing-function: ease-in-out;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-    transition-delay: 1s;
-    background-image: url("../img/parallax1-hover.jpeg");
-}
+    transition-duration: .25s;
+    transition-delay: .25s;
+    background-image: url("../img/parallax1.jpeg");    
+}*/
 
 #paral2 {
-    transition-timing-function: ease-in-out;
-    -webkit-transition: 3s;	
+    //-webkit-transition: .25s;
     background-image: url("../img/parallax2.jpeg");
     height: 60%;
     background-attachment: fixed;
@@ -123,13 +120,11 @@ body {
     background-size: cover;
 }
 
-#paral2:hover {
-    transition-duration: 2s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 1s;
-    -webkit-transition: 2s;
-    background-image: url("../img/parallax2-hover.jpeg");
-}
+/*#paral2:hover, #paral2:active {
+    transition-duration: .25s;
+    -webkit-transition: 1s;
+    background-image: url("../img/parallax1.jpeg");
+}*/
 
 /* HOME VIEW COMPONENTS --------------------------*/
 #welcome-message{
@@ -224,3 +219,16 @@ div {
     width: 100%;
 }
 
+.error {
+    position: absolute;
+    background-color: #8A6D70;
+    top: 3.2vw;
+    text-align: center;
+    color: white;
+    padding: 2vw .25vw .25vw .25vw;
+}
+
+.flashes {
+    list-style-type: none;
+    font-size: 1.25em;
+}
