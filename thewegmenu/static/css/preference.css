@@ -1,0 +1,44 @@
+#prefs {
+    postition: relative;
+    border: thin solid rgba(87,6,37,1);
+    margin-top: 8vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70vw;
+    height: 25vw;
+    padding: .5vw;
+    text-align: center;
+    background-color: white;
+    color: rgba(87,6,37,1);
+}
+
+#checklist {
+    font-size: 1.25em;
+    color: rgba(87,6,37,1);
+    padding: 2vw; .5vw;
+    text-align: left;
+    margin-bottom: 1vw;
+}
+
+#checklist form {
+    margin-bottom: 1vw;
+}
+
+#checklist form label {
+    font-size: 1em;
+    margin-left: 2vw;
+}
+
+#checklist form input[type=checkbox] {
+    margin-left: 5vw;
+    width: 1vw;
+}
+
+#checklist form input[type=submit] {
+    float: right;
+    border: none;
+    color: white;
+    border-radius: 1vw .5vw;
+    padding: .5vw 2vw;
+    background-color: rgba(87,6,37,1);
+}
