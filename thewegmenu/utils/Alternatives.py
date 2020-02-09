@@ -8,51 +8,12 @@ from utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, 
 from utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 
-def lactose_free(ingredient) -> bool:
-    if has_dairy(ingredient):
-        return False
-    return True
-
-
-def soy_free(ingredient) -> bool:
-    if has_soy(ingredient):
-        return False
-    return True
-
-
-def gluten_free(ingredient) -> bool:
-    if has_gluten(ingredient):
-        return False
-    return True
-
-
-def nut_free(ingredient) -> bool:
-    if has_nuts(ingredient):
-        return False
-    return True
-
-
-def kosher(ingredient) -> bool:
-    if is_kosher(ingredient):
-        return True
-    return False
-
-
-def vegetarian(ingredient) -> bool:
-    if has_meat(ingredient):
-        return False
-    return True
-
-
-"""TODO : make lists of alternatives for each category in replace and return that list instead"""
-
-
 def vegan(ingredient) -> bool:
 
     if has_meat(ingredient):
         return False
 
-    if lactose_free(ingredient):
+    if has_dairy(ingredient):
         return False
 
     if has_egg(ingredient):
