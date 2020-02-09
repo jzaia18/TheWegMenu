@@ -34,8 +34,8 @@ def nut_free(ingredient) -> bool:
 
 def kosher(ingredient) -> bool:
     if is_kosher(ingredient):
-        return False
-    return True
+        return True
+    return False
 
 
 def vegetarian(ingredient) -> bool:
@@ -52,7 +52,7 @@ def vegan(ingredient) -> bool:
     if has_meat(ingredient):
         return False
 
-    if has_dairy(ingredient):
+    if lactose_free(ingredient):
         return False
 
     if has_egg(ingredient):
@@ -79,30 +79,28 @@ def filter_recipe(raw_recipe: list, pref: list) -> list:
         recipe.update({i: {}})
 
     for i in raw_recipe:
+        food_info = get_food_data_by_sku(i)
         if 'kosher' in pref:
-            if not kosher(i):
+            if not is_kosher(food_info):
                 recipe[i].update({'kosher': False})
-        if 'gluten free' in pref:
-            if not gluten_free(i):
-                recipe[i].update({'gluten free': False})
+        if 'gluten_free' in pref:
+            if has_gluten(food_info):
+                recipe[i].update({'gluten_free': False})
         if 'vegan' in pref:
-            if not vegan(i):
+            if not vegan(food_info):
                 recipe[i].update({'vegan': False})
-        if 'nut free' in pref:
-            if not nut_free(i):
-                recipe[i].update({'nut free': False})
+        if 'nut_free' in pref:
+            if has_nuts(food_info):
+                recipe[i].update({'nut_free': False})
         if 'vegetarian' in pref:
-            if not vegetarian(i):
+            if has_meat(food_info):
                 recipe[i].update({'vegetarian': False})
-        if 'soy free' in pref:
-            if not soy_free(i):
-                recipe[i].update({'soy free': False})
-        if 'lactose free' in pref:
-            if not lactose_free(i):
-                recipe[i].update({'lactose free': False})
-
-    # with open('ingredients.txt', 'finalRecipe') as outfile:
-    #     json.dump(ingredients, outfile)
+        if 'soy_free' in pref:
+            if has_soy(food_info):
+                recipe[i].update({'soy_free': False})
+        if 'lactose_free' in pref:
+            if has_dairy(food_info):
+                recipe[i].update({'lactose_free': False})
 
     print(recipe)
     return recipe
