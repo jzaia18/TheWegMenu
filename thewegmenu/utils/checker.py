@@ -5,9 +5,19 @@ Author err1482 : Emerald Rafferty
 from thewegmenu.utils.wegmans_utils import get_skus, get_food_data_by_sku
 
 
+def is_kosher(food:str) -> bool:
+    sku = get_skus(food)
+    food_info = get_food_data_by_sku(sku[0])
+
+    if 'kshr' in food_info['name'].lower():
+        return True
+    return False
+
 def has_nuts(food:str) -> bool:
     sku = get_skus(food)
     food_info = get_food_data_by_sku(sku[0])
+
+    print(food_info)
 
 
 def has_meat(food:str) -> bool:
