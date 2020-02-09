@@ -36,4 +36,3 @@ if __name__ == '__main__':
     resp = get_recipe(sys.argv[1], end = 100)
     for item in resp['hits']:
         mongo_utils.add_recipe(item['recipe'])
-

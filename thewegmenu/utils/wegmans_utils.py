@@ -1,6 +1,6 @@
 import requests, os, json, sys
 
-MAX_RESULTS = 100
+MAX_RESULTS = 15
 DIR = os.path.dirname(__file__) or '.'
 KEY = json.loads(open(DIR + "/../secrets.JSON").read())['wegmans']
 
@@ -38,7 +38,7 @@ def get_food_data(food):
     skus = get_skus(food)
     if not skus:
         return None
-    return [get_food_data_by_sku(sku) for sku in skus]
+    return list(filter(lambda x: x, [get_food_data_by_sku(sku) for sku in skus]))
 
 if __name__ == '__main__':
 
