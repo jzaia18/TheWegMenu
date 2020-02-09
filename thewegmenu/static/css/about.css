@@ -19,9 +19,9 @@ video::-webkit-media-controls {
     padding: 1em;
     color: white;
     width: 100%;
-    background-color: #570625;
+    background-color: #8A6D70;
 }
 
 .horizontal-container h1 {
-    font-size: 1.5em;
+    font-size: 2em;
 }

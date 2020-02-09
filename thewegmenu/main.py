@@ -12,7 +12,19 @@ def root():
 
 @app.route("/login")
 def login():
+    if 'user' in session:
+        return redirect(url_for('root'))
     return render_template("login.html")
+
+def require_login(f):
+    @wraps(f)
+    def inner(*args, **kwargs):
+        if 'user' not in session:
+            flash('Please log in')
+            return redirect(url_for('login'))
+        else:
+            return f(*args, **kwargs)
+    return inner
 
 @app.route("/about")
 def about():
@@ -30,6 +42,8 @@ def auth_login():
 
 @app.route("/signup")
 def signup():
+    if 'user' in session:
+        return redirect(url_for('root'))
     return render_template("signup.html")
 
 @app.route("/auth_signup", methods = ['POST'])
@@ -41,6 +55,16 @@ def auth_signup():
     else:
         flash("user name already taken")
     return redirect(url_for("root"))
+
+@app.route('/logout')
+@require_login
+def logout():
+    session.pop('user')
+    return redirect(url_for('root'))
+
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html')
 
 @app.route('/search')
 def search():

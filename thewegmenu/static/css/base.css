@@ -67,12 +67,11 @@ body {
 
 #brand {
     display: flex;
-    flex-direction: row;
     width: auto;
 }
 
 #logo {
-    width: 3vw;
+    height: 3vw;
     margin-right: .5vw;
 }
 
@@ -93,7 +92,8 @@ body {
 
 /* PARALLAX --------------------------------------*/
 #paral1 {
-    -webkit-transition: 5s;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 3s;
     background-image: url("../img/parallax1.jpeg");
     height: 80%;
     background-attachment: fixed;
@@ -102,12 +102,16 @@ body {
     background-size: cover;
 }
 #paral1:hover {
-    transition: 2s;
+    transition-timing-function: ease-in-out;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
     background-image: url("../img/parallax1-hover.jpeg");
 }
 
 #paral2 {
-    -webkit-transition: 5s;	
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 3s;	
     background-image: url("../img/parallax2.jpeg");
     height: 60%;
     background-attachment: fixed;
@@ -117,6 +121,9 @@ body {
 }
 
 #paral2:hover {
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 1s;
     -webkit-transition: 2s;
     background-image: url("../img/parallax2-hover.jpeg");
 }
