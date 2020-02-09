@@ -1,6 +1,6 @@
 import requests, os, json, sys
 
-MAX_RESULTS = 200
+MAX_RESULTS = 100
 DIR = os.path.dirname(__file__) or '.'
 KEY = json.loads(open(DIR + "/../secrets.JSON").read())['wegmans']
 
@@ -46,6 +46,6 @@ if __name__ == '__main__':
     # for item in get_food_data(sys.argv[1]):
     #      print(item['name'])
     # print("\n")
-    for item in get_food_data("triscuit"):
+    for item in get_food_data("vegan butter"):
          print(item)
     print(get_food_data_by_sku(11914))
