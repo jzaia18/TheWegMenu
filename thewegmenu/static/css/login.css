@@ -1,0 +1,29 @@
+.login {
+    postion: relative;
+    text-align: left;
+    background-color: #F0C78A;
+    color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14vw;
+    margin-bottom: 13vw;
+    padding: 3vw 2vw;
+    border-radius: 1vw 1vw;
+    box-shadow: 0 0 .1vw #8A6D70;
+}
+
+.login h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #570625;
+}
+
+.login label {
+    color: #570625;
+}
+
+.login button {
+    font-size: 1em;
+    float: right;
+}
