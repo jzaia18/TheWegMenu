@@ -4,7 +4,7 @@ Author err1482 : Emerald Rafferty
 Takes an ingredient and swaps it for an alternative ingredient based on the user dietary preferences
 
 """
-from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten
+from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg
 from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 """
@@ -16,8 +16,6 @@ def gluten_free(ingredient: str) ->str:
     if has_gluten(ingredient):
         return ingredient + ' not gluten free'
     return ingredient + ' is gluten free'
-
-
 
 def nut_free(ingredient: str) ->str:
     if has_nuts(ingredient):
@@ -34,7 +32,6 @@ def vegetarian(ingredient: str) -> str:
         return 'Wegmans Organic Firm Tofu'
     return ingredient
 
-
 """TODO : make lists of alternatives for each category in replace and return that list instead"""
 def vegan(ingredient: str) -> str:
     replace = {'milk': 'Wegmans Organic Original Soymilk',
@@ -50,17 +47,21 @@ def vegan(ingredient: str) -> str:
                'mayonnaise': 'Hellmann\'s Dressing & Sandwich Spread, Vegan',
                'ice cream': 'sherbet'}
 
-    sku = get_skus(ingredient)
-    food_info = get_food_data_by_sku(sku[0])
-
     if has_meat(ingredient):
-        return food_info['name'] +': not vegan'
+        return ingredient +': not vegan'
         # ingredient = vegetarian(ingredient)
 
     if has_dairy(ingredient):
-        return food_info['name'] +': not vegan'
+        return ingredient+': not vegan'
 
-    return food_info['name']
+    if has_egg(ingredient):
+        return ingredient + ': not vegan'
+
+    return ingredient
+
+
+# def replace(ingredient, pref) -> str:
+
 
 
 """
@@ -73,13 +74,15 @@ Facilitates the replacement of ingredients in a recipe to match dietary preferen
 
 def main() -> list:
     # recipe: list, pref: list
-    recipe = {'cheese', 'ground beef', 'bread'}
-    pref = {'kosher', 'gluten free'}
+    recipe = {'cheese', 'ground beef', 'bread', 'egg'}
+    pref = {'kosher', 'gluten free', 'vegan'}
     for i in recipe:
         if 'kosher' in pref:
             print(kosher(i))
         if 'gluten free' in pref:
             print(gluten_free(i))
+        if 'vegan' in pref:
+            print(vegan(i))
 
     # with open('ingredients.txt', 'finalRecipe') as outfile:
     #     json.dump(ingredients, outfile)
