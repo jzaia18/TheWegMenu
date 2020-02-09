@@ -79,3 +79,9 @@ select {
 .calendar-add {
     margin: 1vw;
 }
+
+.calendar-add option, .calendar-add select, .calendar-add button {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 80%;
+}
