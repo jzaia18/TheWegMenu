@@ -7,15 +7,7 @@ app = Flask(__name__)
 DIR = os.path.dirname(__file__) or '.'
 app.secret_key = json.loads(open(DIR + "/secrets.JSON").read())['pythonsecretkey']
 
-@app.route("/")
-def root():
-    return render_template("home.html")
 
-@app.route("/login")
-def login():
-    if 'user' in session:
-        return redirect(url_for('root'))
-    return render_template("login.html")
 
 def require_login(f):
     @wraps(f)
@@ -26,6 +18,16 @@ def require_login(f):
         else:
             return f(*args, **kwargs)
     return inner
+
+@app.route("/")
+def root():
+    return render_template("home.html")
+
+@app.route("/login")
+def login():
+    if 'user' in session:
+        return redirect(url_for('root'))
+    return render_template("login.html")
 
 @app.route("/about")
 def about():
@@ -64,12 +66,21 @@ def logout():
     return redirect(url_for('root'))
 
 @app.route('/calendar')
+@require_login
 def calendar():
     return render_template('calendar.html')
 
-@app.route('/search')
+@app.route('/search', methods = ['POST'])
+@require_login
 def search():
-    return render_template('search.html')
+    if 'query' not in request.form:
+        flash("Please include a query")
+        redirect(url_for("root"))
+
+    query = request.form['query']
+    results = mongo_utils.get_recipes_by_food(query)
+
+    return render_template('search.html', results=results, query=query)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)

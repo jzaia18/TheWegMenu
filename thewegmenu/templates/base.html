@@ -21,8 +21,8 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
 	{% if 'user' in session %}
-	  <form class="search">
-	    <input class="search-bar" type="text"></input>
+	  <form method="POST" class="search" action="/search">
+	    <input required name="query" class="search-bar" type="text"></input>
 	    <button type="submit">Search</button>
 	  </form>
 	  <ul class="navbar-links">

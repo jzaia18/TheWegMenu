@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+<br />
+<br />
+<br />
+<div>
+  <h3> Results for: {{query}} </h3>
+  <ul>
+    {% for result in results %}
+    <li>
+      {{result['label']}}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
