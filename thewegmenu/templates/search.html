@@ -29,8 +29,12 @@
         {{label}},
         {% endfor %}
       </td>
-      <td>
-        {{result['alternative_caution']}}
+      <td class="search-labels">
+        {% for ingredient in result['alternative_caution'] %}
+        {% for warning in result['alternative_caution'][ingredient] %}
+        {{ingredient}} is not <i> {{warning}}</i>. <br />
+        {% endfor %}
+        {% endfor %}
       </td>
       <td>
         <div class="calendar-add" id="{{result['_id']}}-div">
