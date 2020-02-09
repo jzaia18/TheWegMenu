@@ -41,11 +41,25 @@
 }
 
 #meal-plans li form {
-    background-color: #CE8278;
-    color: white;
     border: none;
     text-align: right;
     display: inline-block;
     margin: .5vw;
     position: relative;
+}
+
+#meal-plans input[type=submit] {
+    background-color: #CE8278;
+    color: white;
+    border: none;
+    font-size: 1em;
+    text-align: right;
+    display: inline-block;
+    margin: .5vw;
+    position: relative;
+    border-radius: 1vw 1vw;
+}
+
+#meal-plans input[type=submit]:hover {
+    background-color: red;
 }
