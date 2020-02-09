@@ -14,18 +14,15 @@
   </head>
 
     <nav class="navbar navbar-expand-lg navby" role="navigation">
-      <a id="brand" href="/"><img id="logo" src="../static/img/icons/logo.png" alt="logo">The WegMenu</a>
+      <a id="brand" href="/">The WegMenu</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><img src="{{ url_for('static', filename='img/icon_dropdown.png' ) }}" alt="x" /></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-links">
-          <li>
-            <a href="/about">About</a>
-          </li>
 	  {% if 'user' in session %}
-	  <p>Welcome, {{ session['user'] }}!</p>
+	  <p>Welcome, <u>{{ session['user'] }}</u>!</p>
 	  <li>
 	    <a href="/calendar"> Calendar </a>
 	  </li>
@@ -33,6 +30,9 @@
 	    <a href="/logout"> Logout </a>
 	  </li>
           {% else %}
+	  <li>
+            <a href="/about">About</a>
+          </li>
 	  <li>
             <a href="/login">Sign In</a>
           </li>

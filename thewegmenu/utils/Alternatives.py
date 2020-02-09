@@ -7,34 +7,32 @@ Takes an ingredient and swaps it for an alternative ingredient based on the user
 from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg
 from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
-def gluten_free(ingredient: str) -> str:
+def gluten_free(ingredient: str) -> bool:
     if has_gluten(ingredient):
-        return ingredient + ' not gluten free'
-    return ingredient + ' is gluten free'
+        return False
+    return True
 
 
-def nut_free(ingredient: str) -> str:
+def nut_free(ingredient: str) -> bool:
     if has_nuts(ingredient):
-        return ingredient + ' is not nut free'
-    return ingredient
+        return False
+    return True
 
 
-def kosher(ingredient: str) -> str:
+def kosher(ingredient: str) -> bool:
     if is_kosher(ingredient):
-        return ingredient + ' is kosher'
-    return ingredient + ' not kosher'
+        return False
+    return True
 
 
-def vegetarian(ingredient: str) -> str:
+def vegetarian(ingredient: str) -> bool:
     if has_meat(ingredient):
-        return 'Wegmans Organic Firm Tofu'
-    return ingredient
+        return False
+    return True
 
 
 """TODO : make lists of alternatives for each category in replace and return that list instead"""
-
-
-def vegan(ingredient: str) -> str:
+def vegan(ingredient: str) -> bool:
     replace = {'milk': 'Wegmans Organic Original Soymilk',
                'contains milk': 'recipe: list, pref: list',
                'egg': 'Namaste Raw Goods Egg Replacer',
@@ -49,14 +47,14 @@ def vegan(ingredient: str) -> str:
                'ice cream': 'sherbet'}
 
     if has_meat(ingredient):
-        return ingredient + ': not vegan'
+        return False
         # ingredient = vegetarian(ingredient)
 
     if has_dairy(ingredient):
-        return ingredient + ': not vegan'
+        return False
 
     if has_egg(ingredient):
-        return ingredient + ': not vegan'
+        return False
 
     return ingredient
 
@@ -66,27 +64,34 @@ def vegan(ingredient: str) -> str:
 
 """
 Facilitates the replacement of ingredients in a recipe to match dietary preferences. 
-
+For now it just displays whether or not the ingredients are in the dietary preferences
 @param recipe : a list of the ingredients in the recipe
 @param pref : dietary preferences used to replace the recipe ingredients with ingredients that fit the preferences
 """
-
-
 def main() -> list:
     # recipe: list, pref: list
-    recipe = {'cheese', 'ground beef', 'whole wheat bread', 'egg'}
-    pref = {'kosher', 'gluten free', 'vegan'}
-    for i in recipe:
+    raw_recipe = {'cheese', 'burger', 'whole wheat bread', 'egg', "apl"}
+    recipe = {}
+    for i in raw_recipe:
+        recipe.update({i: {}})
+    pref = {'gluten free', 'vegetarian'}
+    for i in raw_recipe:
         if 'kosher' in pref:
-            print(kosher(i))
+            recipe[i].update({'kosher': kosher(i)})
         if 'gluten free' in pref:
-            print(gluten_free(i))
+            recipe[i].update({'gluten free': gluten_free(i)})
         if 'vegan' in pref:
-            print(vegan(i))
+            recipe[i].update({'vegan': vegan(i)})
+        if 'nut free' in pref:
+            recipe[i].update({'nut free': nut_free(i)})
+        if 'vegetarian' in pref:
+            recipe[i].update({'vegetarian': vegetarian(i)})
+
 
     # with open('ingredients.txt', 'finalRecipe') as outfile:
     #     json.dump(ingredients, outfile)
 
+    print(recipe)
     return recipe
 
 
