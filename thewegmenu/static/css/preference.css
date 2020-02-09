@@ -1,3 +1,9 @@
+body {
+    background-image: url('../img/preference.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 #prefs {
     postition: relative;
     border: thin solid rgba(87,6,37,1);
@@ -8,8 +14,12 @@
     height: 25vw;
     padding: .5vw;
     text-align: center;
-    background-color: white;
+    background-color: #F7F4EF;
     color: rgba(87,6,37,1);
+}
+
+#prefs h1 {
+    margin-top: 1vw;
 }
 
 #checklist {
