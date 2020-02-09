@@ -73,6 +73,8 @@ def has_meat(food: str) -> bool:
     sku = get_skus(food)
     food_info = get_food_data_by_sku(sku[0])
 
+    print(food_info)
+
     for i in food_info['ingredients']:
         i = i.lower()
         for j in products:
