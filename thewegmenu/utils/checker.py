@@ -49,7 +49,7 @@ def has_nuts(food: str) -> bool:
 
 def has_meat(food: str) -> bool:
     sku = get_skus(food)
-    food_info = get_food_data_by_sku(sku[0])
+    food_info = get_food_data_by_sku(sku[1])
 
     return not (food_info['isLactoovoVegetarian'])
 
