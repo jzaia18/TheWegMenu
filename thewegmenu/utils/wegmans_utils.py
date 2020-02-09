@@ -1,6 +1,6 @@
 import requests, os, json, sys
 
-MAX_RESULTS = 1
+MAX_RESULTS = 200
 DIR = os.path.dirname(__file__) or '.'
 KEY = json.loads(open(DIR + "/../secrets.JSON").read())['wegmans']
 
