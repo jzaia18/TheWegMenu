@@ -16,13 +16,13 @@
     </div>
     <div class="form-group">
       <label for="password_input">Password</label>
-      <input name="password" type="password" class="form-control" id="password_input" placeholder="Enter Password">
+      <input name="password" type="password" class="form-control" id="password_input" placeholder="Enter Password" pattern=".{5,}" required title="5 characters minimum" />
     </div>
     <div class="form-group">
       <label for="confirm_password_input">Confirm Password</label>
-      <input type="password" class="form-control" id="confirm_password_input" placeholder="Confirm Password">
+      <input type="password" class="form-control" id="confirm_password_input" placeholder="Confirm Password" pattern=".{5,}" required title="5 characters minimum" />
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button disabled id="submit_form" type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
