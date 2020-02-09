@@ -4,8 +4,8 @@ Author err1482 : Emerald Rafferty
 Takes an ingredient and swaps it for an alternative ingredient based on the user dietary preferences
 
 """
-from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg, has_soy
-from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
+from utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg, has_soy
+from utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 def lactose_free(ingredient: str) -> bool:
     if has_dairy(ingredient):

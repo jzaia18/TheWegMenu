@@ -2,7 +2,7 @@
 Author err1482 : Emerald Rafferty
 
 """
-from thewegmenu.utils.wegmans_utils import get_skus, get_food_data_by_sku
+from utils.wegmans_utils import get_skus, get_food_data_by_sku
 
 def has_pork(food: str) -> bool:
     sku = get_skus(food)

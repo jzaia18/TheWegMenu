@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from functools import wraps
 from utils import mongo_utils, wegmans_utils
 from utils import recipe_maker
+from utils import Alternatives
 import os, json
 
 app = Flask(__name__)
@@ -91,6 +92,7 @@ def search():
 
     for hit in results:
         hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
+        hit['alternative_caution'] = Alternatives.filter_recipe([x[1] for x in hit['ingredientLines']])
 
     return render_template('search.html', results=results, query=query)
 
