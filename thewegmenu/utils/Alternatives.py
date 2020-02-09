@@ -4,8 +4,18 @@ Author err1482 : Emerald Rafferty
 Takes an ingredient and swaps it for an alternative ingredient based on the user dietary preferences
 
 """
-from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg
+from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten, has_egg, has_soy
 from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
+
+def lactose_free(ingredient: str) -> bool:
+    if has_dairy(ingredient):
+        return False
+    return True
+
+def soy_free(ingredient: str) -> bool:
+    if has_soy(ingredient):
+        return False
+    return True
 
 def gluten_free(ingredient: str) -> bool:
     if has_gluten(ingredient):
@@ -78,15 +88,27 @@ def main() -> list:
 
     for i in raw_recipe:
         if 'kosher' in pref:
-            recipe[i].update({'kosher': kosher(i)})
+            if not kosher(i):
+                recipe[i].update({'kosher': False})
         if 'gluten free' in pref:
-            recipe[i].update({'gluten free': gluten_free(i)})
+            if not gluten_free(i):
+                recipe[i].update({'gluten free': False})
         if 'vegan' in pref:
-            recipe[i].update({'vegan': vegan(i)})
+            if not vegan(i):
+                recipe[i].update({'vegan': False})
         if 'nut free' in pref:
-            recipe[i].update({'nut free': nut_free(i)})
+            if not nut_free(i):
+                recipe[i].update({'nut free': False})
         if 'vegetarian' in pref:
-            recipe[i].update({'vegetarian': vegetarian(i)})
+            if not vegetarian(i):
+                recipe[i].update({'vegetarian': False})
+        if 'soy free' in pref:
+            if not soy_free(i):
+                recipe[i].update({'soy free': False})
+        if'lactose free' in pref:
+            if not lactose_free(i):
+                recipe[i].update({'lactose free': False})
+
 
 
     # with open('ingredients.txt', 'finalRecipe') as outfile:
