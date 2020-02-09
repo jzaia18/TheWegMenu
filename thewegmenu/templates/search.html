@@ -31,9 +31,15 @@
       </td>
       <td class="search-labels">
         {% for ingredient in result['alternative_caution'] %}
+
+        {% if result['alternative_caution'][ingredient] != {} %}
+        {{ingredient}} is not
         {% for warning in result['alternative_caution'][ingredient] %}
-        {{ingredient}} is not <i> {{warning}}</i>. <br />
+        <i> {{warning}}</i>
         {% endfor %}
+        . <br />
+        {% endif %}
+
         {% endfor %}
       </td>
       <td>
