@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css' ) }}">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js' ) }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js' ) }}"></script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icons/logo.png' ) }}">
     {% block css %} {% endblock %}
     <title>
       {% block title %} {% endblock %}
@@ -21,8 +22,8 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
 	{% if 'user' in session %}
-	  <form class="search">
-	    <input class="search-bar" type="text"></input>
+	  <form method="POST" class="search" action="/search">
+	    <input required name="query" class="search-bar" type="text"></input>
 	    <button type="submit">Search</button>
 	  </form>
 	  <ul class="navbar-links">

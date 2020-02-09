@@ -1,21 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
-from utils import mongo_utils
+from utils import mongo_utils, wegmans_utils
 import os, json
 
 app = Flask(__name__)
 DIR = os.path.dirname(__file__) or '.'
 app.secret_key = json.loads(open(DIR + "/secrets.JSON").read())['pythonsecretkey']
 
-@app.route("/")
-def root():
-    return render_template("home.html")
-
-@app.route("/login")
-def login():
-    if 'user' in session:
-        return redirect(url_for('root'))
-    return render_template("login.html")
+DAYS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
 
 def require_login(f):
     @wraps(f)
@@ -26,6 +18,16 @@ def require_login(f):
         else:
             return f(*args, **kwargs)
     return inner
+
+@app.route("/")
+def root():
+    return render_template("home.html")
+
+@app.route("/login")
+def login():
+    if 'user' in session:
+        return redirect(url_for('root'))
+    return render_template("login.html")
 
 @app.route("/about")
 def about():
@@ -64,12 +66,38 @@ def logout():
     return redirect(url_for('root'))
 
 @app.route('/calendar')
+@require_login
 def calendar():
-    return render_template('calendar.html')
+    cal = mongo_utils.get_calendar(session['user'])
 
-@app.route('/search')
+    for day in DAYS:
+        if day in cal:
+            cal[day] = [mongo_utils.get_recipe_by_id(rid) for rid in cal[day]]
+        else:
+            cal[day] = []
+
+    return render_template('calendar.html', calendar = cal)
+
+@app.route('/search', methods = ['POST'])
+@require_login
 def search():
-    return render_template('search.html')
+    if 'query' not in request.form:
+        flash("Please include a query")
+        redirect(url_for("root"))
+
+    query = request.form['query']
+    results = mongo_utils.get_recipes_by_food(query)
+
+    for hit in results:
+        pass
+
+    return render_template('search.html', results=results, query=query)
+
+@app.route('/remove_recipe', methods = ['POST'])
+@require_login
+def remove_recipe():
+    mongo_utils.remove_recipe_from_calendar(request.form['recipe_id'], request.form['day'], session['user'])
+    return redirect(url_for("calendar"))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
