@@ -4,7 +4,7 @@ Author err1482 : Emerald Rafferty
 Takes an ingredient and swaps it for an alternative ingredient based on the user dietary preferences
 
 """
-from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher
+from thewegmenu.utils.checker import has_meat, has_dairy, is_kosher, has_nuts, has_gluten
 from thewegmenu.utils.wegmans_utils import get_skus, get_food_data, get_food_data_by_sku
 
 """
@@ -12,11 +12,22 @@ checks to see if an ingredient is vegan, if not, it will return a
 vegan alternative ingredient
 """
 
+def gluten_free(ingredient: str) ->str:
+    if has_gluten(ingredient):
+        return ingredient + ' not gluten free'
+    return ingredient + ' is gluten free'
+
+
+
+def nut_free(ingredient: str) ->str:
+    if has_nuts(ingredient):
+        return ingredient + ' is not nut free'
+    return ingredient
 
 def kosher(ingredient: str) -> str:
     if is_kosher(ingredient):
         return ingredient + ' is kosher'
-    return ingredient + 'not kosher'
+    return ingredient + ' not kosher'
 
 def vegetarian(ingredient: str) -> str:
     if has_meat(ingredient):
@@ -62,16 +73,14 @@ Facilitates the replacement of ingredients in a recipe to match dietary preferen
 
 def main() -> list:
     # recipe: list, pref: list
-    recipe = {'cheese', 'ground beef'}
-    pref = {'kosher'}
+    recipe = {'cheese', 'ground beef', 'bread'}
+    pref = {'kosher', 'gluten free'}
     for i in recipe:
         if 'kosher' in pref:
-             print(kosher(i))
+            print(kosher(i))
+        if 'gluten free' in pref:
+            print(gluten_free(i))
 
-    for i in recipe:
-        print(i)
-
-    # print(vegan('ground beef'))
     # with open('ingredients.txt', 'finalRecipe') as outfile:
     #     json.dump(ingredients, outfile)
 
