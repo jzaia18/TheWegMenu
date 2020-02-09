@@ -6,6 +6,7 @@ dbname = json.loads(open(DIR + "/../secrets.JSON").read())['mongo']
 connection = pymongo.MongoClient(dbname)
 db = connection.thewegmenu
 users = db.users
+recipes = db.recipes
 
 def get_hashed_password(user, passw):
     return hashlib.sha256((passw + user).encode('utf-8')).hexdigest()
