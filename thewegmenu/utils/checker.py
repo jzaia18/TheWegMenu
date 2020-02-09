@@ -65,7 +65,7 @@ def has_dairy(food_info) -> bool:
     for i in food_info['ingredients']:
         i = i.lower()
         for j in products:
-            if j in i and 'coconut' not in j and 'soy' not in j and 'almond' not in j and 'oat' not in j and 'rice' not in j:
+            if j in i and 'coconut' not in i and 'soy' not in i and 'almond' not in i and 'oat' not in i and 'rice' not in i:
                 return True
     return False
 
