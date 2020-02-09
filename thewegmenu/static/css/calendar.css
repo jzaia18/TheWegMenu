@@ -4,20 +4,48 @@
     top: 5vw;
 }
 
-#weekly-calendar table, th, td {
-    padding: 1vw 4vw;
-    margin-right: auto;
-    margin-left: auto;
+#weekly-calendar h2 {
+    margin-top: 5vw;
+}
+
+#weekly-calendar table, th,td {
     border: thin solid black;
-    margin-top: 3vw;
     font-size: 1em;
 }
 
 #weekly-calendar table {
+    margin-top: 4vw;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 1em 1em;
 }
 
 #weekly-calendar th {
+    padding: 1vw 2vw;
     background-color: #CE8278;
     color: #570625;
+}
+
+
+#meal-plans {
+    text-align: left;
+}
+
+#meal-plans td {
+    padding: 1vw 0vw;
+}
+
+#meal-plans td ul {
+    list-style-type: none;
+}
+
+#meal-plans li form {
+    background-color: #CE8278;
+    color: white;
+    border: none;
+    text-align: right;
+    display: inline-block;
+    margin: .5vw;
+    position: relative;
 }
