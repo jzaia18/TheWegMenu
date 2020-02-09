@@ -9,6 +9,7 @@ db = connection.thewegmenu
 users = db.users
 recipes = db.recipes
 calendars = db.calendars
+preferences = db.preferences
 
 DAYS = {"SUNDAY": [], "MONDAY": [], "TUESDAY": [], "WEDNESDAY": [], "THURSDAY": [], "FRIDAY": [], "SATURDAY": []}
 
@@ -79,6 +80,16 @@ def remove_recipe_from_calendar(recipe_id, day, username):
     )
     return True
 
+def update_preferences(prefs, username):
+    preferences.update_one(
+        {"username": username},
+        {"$set": {"preferences": prefs}},
+        upsert=True
+    )
+    return True
+
+def get_preferences(username):
+    return preferences.find_one({"username": username})
 
 if __name__ == '__main__':
     # print(register("bob", "1234"))

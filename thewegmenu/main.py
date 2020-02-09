@@ -115,9 +115,9 @@ def prefs():
 @app.route('/update_prefs', methods=['POST'])
 @require_login
 def update_prefs():
-    #return redirect(url_for("root"))
-    return str(request.form)
-
+    prefs = [pref for pref in request.form]
+    mongo_utils.update_preferences(prefs, session['user'])
+    return redirect(url_for('root'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
