@@ -88,6 +88,9 @@ def update_preferences(prefs, username):
     )
     return True
 
+def get_preferences(username):
+    return preferences.find_one({"username": username})
+
 if __name__ == '__main__':
     # print(register("bob", "1234"))
     # print(register("bob", "1234"))
