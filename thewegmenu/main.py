@@ -10,11 +10,11 @@ def root():
     return render_template("home.html")
 
 @app.route("/login")
-def root():
+def login():
     return render_template("login.html")
 
 @app.route("/signup")
-def root():
+def signup():
     return render_template("signup.html")
 
 @app.route('/search')
