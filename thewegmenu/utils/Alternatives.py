@@ -80,6 +80,7 @@ def filter_recipe(raw_recipe: list, pref: list) -> list:
         if food_info is None:
             continue
         recipe.update({food_info['name']: {}})
+        i = food_info['name']
         if 'kosher' in pref:
             if not is_kosher(food_info):
                 recipe[i].update({'kosher': False})
