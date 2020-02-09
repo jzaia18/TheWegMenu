@@ -77,6 +77,8 @@ def filter_recipe(raw_recipe: list, pref: list) -> list:
     recipe = {}
     for i in raw_recipe:
         food_info = get_food_data_by_sku(i)
+        if food_info is None:
+            continue
         recipe.update({food_info['name']: {}})
         if 'kosher' in pref:
             if not is_kosher(food_info):
