@@ -1,4 +1,4 @@
-import pymongo, json, hashlib, os
+import pymongo, json, hashlib, os, random, re, sys
 
 DIR = os.path.dirname(__file__) or '.'
 dbname = json.loads(open(DIR + "/../secrets.JSON").read())['mongo']
@@ -34,10 +34,21 @@ def user_exists(user):
 def add_recipe(recipe):
     recipes.insert_one(recipe)
 
+def get_recipes_by_food(food, results=20):
+    result = list(recipes.find({"label": {"$regex": re.compile(str(food), re.IGNORECASE)}}))
+    random.shuffle(result)
+    return result[:results]
+
 
 if __name__ == '__main__':
-    print(register("bob", "1234"))
-    print(register("bob", "1234"))
-    print(authenticate("bob", "1234"))
-    print(authenticate("bob", "12345"))
-    print(authenticate("bobo", "12345"))
+    # print(register("bob", "1234"))
+    # print(register("bob", "1234"))
+    # print(authenticate("bob", "1234"))
+    # print(authenticate("bob", "12345"))
+    # print(authenticate("bobo", "12345"))
+    if len(sys.argv) < 2:
+        print("Please input a food")
+        exit()
+
+
+    print(*[x['label']+"\n" for x in get_recipes_by_food(sys.argv[1])])
