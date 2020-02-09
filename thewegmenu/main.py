@@ -92,7 +92,7 @@ def search():
 
     for hit in results:
         hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
-        #hit['alternative_caution'] = Alternatives.filter_recipe([x[1] for x in hit['ingredientLines']], [])
+        hit['alternative_caution'] = Alternatives.filter_recipe([x[1] for x in hit['ingredientLines']], [])
 
     return render_template('search.html', results=results, query=query)
 
