@@ -46,21 +46,25 @@ def add_recipe_to_calendar(recipe_id, day, username):
     day = str(day).upper()
     if day not in DAYS:
         return False
-    cal = calendars.find_one({"username": username})
-    if cal == None:
-        cal = {"username": username, **DAYS}
-        cal[day].append(recipe_id)
-        calendars.insert_one(cal)
-    else:
-        calendars.update_one(
-            {"username": username},
-            {"$push": {day: recipe_id}},
-        )
+    #cal = calendars.find_one({"username": username})
+    #if cal == None:
+    #    cal = {"username": username, **DAYS}
+    #    cal[day].append(recipe_id)
+    #    calendars.insert_one(cal)
+    #else:
+    calendars.update_one(
+        {"username": username},
+        {"$push": {day: recipe_id}},
+        upsert=True
+    )
     return True
+
+def get_calendar(username):
+    return calendars.find_one({"username": username})
 
 def remove_recipe_from_calendar(recipe_id, day, username):
     day = str(day).upper()
-    cal = calendars.find_one({"username": username})
+    cal = get_calendar(username)
     if not cal:
         return False
     new_arr = cal[day]
@@ -86,5 +90,5 @@ if __name__ == '__main__':
 
     # print(*[x['label']+"\n" for x in get_recipes_by_food(sys.argv[1])])
 
-    #add_recipe_to_calendar(16, "monday", "bob")
-    remove_recipe_from_calendar(12, "sunday", "bob")
+    add_recipe_to_calendar(16, "monday", "bob")
+    #remove_recipe_from_calendar(12, "sunday", "bob")
