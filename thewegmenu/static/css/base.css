@@ -235,7 +235,7 @@ div {
 }
 
 /* SEARCH -----------------------------------------------*/
-form {
+.search {
     display: inline-block;
     position: fixed;
     top: 1vw;
@@ -250,13 +250,13 @@ form {
     border: none;
 }
 
-form button {
+.search button {
     font-size: 1vw;
     display: inline-block;
     border: none;
     background-color: #F0C78A;
 }
 
-form button:hover {
+.search button:hover {
     background-color: #F2AC89;
 }
