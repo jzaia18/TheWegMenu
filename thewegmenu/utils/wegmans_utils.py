@@ -36,6 +36,8 @@ def get_food_data_by_sku(sku):
 
 def get_food_data(food):
     skus = get_skus(food)
+    if not skus:
+        return None
     return [get_food_data_by_sku(sku) for sku in skus]
 
 if __name__ == '__main__':

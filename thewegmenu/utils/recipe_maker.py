@@ -1,13 +1,16 @@
 """
 
 """
-from thewegmenu.utils.wegmans_utils import get_food_data
+from utils.wegmans_utils import get_food_data
 
 
 def find_weggie(food: str) -> tuple:
     food = get_food_data(food)
 
-    return (food['name'], food['sku'])
+    if not food:
+        return (None, None)
+
+    return (food[0]['name'], food[0]['sku'])
 
 def translate(ingredients: list) -> tuple:
     recipe = []
