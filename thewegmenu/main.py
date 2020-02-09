@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from functools import wraps
 from utils import mongo_utils, wegmans_utils
+from utils import recipe_maker
 import os, json
 
 app = Flask(__name__)
@@ -89,7 +90,7 @@ def search():
     results = mongo_utils.get_recipes_by_food(query)
 
     for hit in results:
-        pass
+        hit['ingredientLines'] = recipe_maker(hit['ingredientLines'])
 
     return render_template('search.html', results=results, query=query)
 

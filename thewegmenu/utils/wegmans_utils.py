@@ -46,6 +46,6 @@ if __name__ == '__main__':
     # for item in get_food_data(sys.argv[1]):
     #      print(item['name'])
     # print("\n")
-    for item in get_food_data("vegan butter"):
-         print(item)
+    #for item in get_food_data("vegan butter"):
+    #     print(item)
     print(get_food_data_by_sku(11914))
