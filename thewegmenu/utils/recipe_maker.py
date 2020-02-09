@@ -7,7 +7,10 @@ from utils.wegmans_utils import get_food_data
 def find_weggie(food: str) -> tuple:
 
     food = food.split()
-    food = food[2:]
+
+    if(food[0].isdigit()):
+        food = food[2:]
+
     food = " ".join(food)
     food = get_food_data(food)
 
