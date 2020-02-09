@@ -5,6 +5,10 @@ from utils.wegmans_utils import get_food_data
 
 
 def find_weggie(food: str) -> tuple:
+
+    food = food.split()
+    food = food[2:]
+    food = food.join()
     food = get_food_data(food)
 
     if not food or not food[0]:
