@@ -70,11 +70,12 @@ For now it just displays whether or not the ingredients are in the dietary prefe
 """
 def main() -> list:
     # recipe: list, pref: list
-    raw_recipe = {'cheese', 'burger', 'whole wheat bread', 'egg', "apl"}
+    raw_recipe = {'cheese', 'chicken', "tofu"}
+    pref = {'gluten free', 'vegetarian'}
     recipe = {}
     for i in raw_recipe:
         recipe.update({i: {}})
-    pref = {'gluten free', 'vegetarian'}
+
     for i in raw_recipe:
         if 'kosher' in pref:
             recipe[i].update({'kosher': kosher(i)})
