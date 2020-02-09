@@ -24,6 +24,7 @@ body {
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
     z-index: 1;
+    display: inline-block;
 }
 
 .navbar-links {
@@ -75,7 +76,7 @@ body {
 }
 
 #brand {
-    width: 100%;
+    left: 2vw;
 }
 
 /* FOOTER ---------------------------------------
@@ -132,7 +133,7 @@ body {
     text-align: center;
     background-color: #8A6D70;
     color: white;
-    margin-top: 18%;
+    top: 40%;
     width: 50%;
     right: 25%;
     margin-left: auto;
@@ -231,4 +232,31 @@ div {
 .flashes {
     list-style-type: none;
     font-size: 1.25em;
+}
+
+/* SEARCH -----------------------------------------------*/
+form {
+    display: inline-block;
+    position: fixed;
+    top: 1vw;
+    margin-left: 35%;
+}
+
+.search-bar {
+    font-size: .8em;
+    padding: .1vw .5vw;
+    width: 24vw;
+    display: inline-block;
+    border: none;
+}
+
+form button {
+    font-size: 1vw;
+    display: inline-block;
+    border: none;
+    background-color: #F0C78A;
+}
+
+form button:hover {
+    background-color: #F2AC89;
 }
