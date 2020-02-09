@@ -3,7 +3,7 @@ body {
 }
 
 .search-results {
-    margin-top: 4vw;
+    margin-top: 6vw;
     margin: 5%;
     width: 80%;
     margin-left: auto;
@@ -48,10 +48,35 @@ body {
 }
 
 .search-labels {
+    padding: 0vw 1vw;
     font-size: .75em;
 }
 
 .image-col {
     text-align: center;
     background-color: #570625;
+}
+
+button {
+    background-color: #CE8278;
+    border: none;
+    font-size: .9em;
+    color: white;
+    border-radius: .1vw .1vw;
+}
+
+button:hover {
+    background-color: #F2AC89;
+}
+
+select {
+    margin-left: .5vw;
+    background-color: #F2AC89;
+    border: none;
+    font-size: .9em;
+    color: white;
+}
+
+.calendar-add {
+    margin: 1vw;
 }
