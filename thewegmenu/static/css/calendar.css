@@ -8,17 +8,16 @@
     margin-top: 5vw;
 }
 
-#weekly-calendar table, th,td {
+#weekly-calendar table, th, td {
     border: thin solid black;
     font-size: 1em;
 }
 
 #weekly-calendar table {
     margin-top: 4vw;
-    width: 90%;
+    width: 92%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 1em 1em;
 }
 
 #weekly-calendar th {
@@ -27,16 +26,29 @@
     color: #570625;
 }
 
+#weekly-calendar td {
+    font-size: .8em;
+}
 
 #meal-plans {
     text-align: left;
 }
 
 #meal-plans td {
-    padding: 1vw 0vw;
+    text-size: 1em;
 }
 
 #meal-plans td ul {
+    margin: .5vw;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#meal-plans li {
+    margin: 0;
+    padding: 0;
     list-style-type: none;
 }
 
@@ -55,7 +67,7 @@
     font-size: 1em;
     text-align: right;
     display: inline-block;
-    margin: .5vw;
+    margin: 0vw .5vw;
     position: relative;
     border-radius: 1vw 1vw;
 }
