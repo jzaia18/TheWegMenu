@@ -28,6 +28,11 @@
           {% for recipe in calendar[day.upper()] %}
           <li>
             {{recipe['label']}}
+            <form method="POST" action="remove_recipe">
+              <input type="hidden" value="{{recipe['_id']}}" name="recipe_id">
+              <input type="hidden" value="{{day}}" name="day">
+              <input type="submit" value="remove">
+            </form>
           </li>
           {% endfor %}
 

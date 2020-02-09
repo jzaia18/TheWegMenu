@@ -94,5 +94,11 @@ def search():
 
     return render_template('search.html', results=results, query=query)
 
+@app.route('/remove_recipe', methods = ['POST'])
+@require_login
+def remove_recipe():
+    mongo_utils.remove_recipe_from_calendar(request.form['recipe_id'], request.form['day'], session['user'])
+    return redirect(url_for("calendar"))
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
