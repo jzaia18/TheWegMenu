@@ -15,16 +15,20 @@
       <input name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter username">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+      <label for="password_input">Password</label>
+      <input name="password" type="password" class="form-control" id="password_input" placeholder="Enter Password">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Confirm Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+      <label for="confirm_password_input">Confirm Password</label>
+      <input type="password" class="form-control" id="confirm_password_input" placeholder="Confirm Password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
 <div class="footer">Footer</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/signup.js') }}"> </script>
 {% endblock %}

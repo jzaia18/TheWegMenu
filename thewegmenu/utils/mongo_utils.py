@@ -31,6 +31,9 @@ def user_exists(user):
         return True
     return False
 
+def add_recipe(recipe):
+    recipes.insert_one(recipe)
+
 
 if __name__ == '__main__':
     print(register("bob", "1234"))
