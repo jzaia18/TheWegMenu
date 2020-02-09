@@ -1,6 +1,6 @@
 #prefs {
     postition: relative;
-    background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(87,6,37,1) 35%, rgba(206,130,120,1) 100%);
+    border: thin solid rgba(87,6,37,1);
     margin-top: 8vw;
     margin-left: auto;
     margin-right: auto;
@@ -8,12 +8,13 @@
     height: 25vw;
     padding: .5vw;
     text-align: center;
-    color: white;
+    background-color: white;
+    color: rgba(87,6,37,1);
 }
 
 #checklist {
     font-size: 1.25em;
-    color: white;
+    color: rgba(87,6,37,1);
     padding: 2vw; .5vw;
     text-align: left;
     margin-bottom: 1vw;
@@ -37,6 +38,7 @@
     float: right;
     border: none;
     color: white;
+    border-radius: 1vw .5vw;
     padding: .5vw 2vw;
     background-color: rgba(87,6,37,1);
 }
