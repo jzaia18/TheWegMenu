@@ -57,7 +57,7 @@ body {
     color: white;
 }
 
-.navbar-links li a:hover {
+.navbar-links a:hover {
     color: yellow;
     text-decoration: underline;
 }
@@ -237,9 +237,9 @@ div {
 /* SEARCH -----------------------------------------------*/
 .search {
     display: inline-block;
-    position: fixed;
+    position: absolute;
     top: 1vw;
-    margin-left: 35%;
+    left: 36%;
 }
 
 .search-bar {
@@ -262,9 +262,18 @@ div {
     background-color: #F2AC89;
 }
 
-@media only screen and (max-width: 750px){
-    .paral1, .paral2 {
-	height: 20%;
+@media only screen and (max-width: 1025px){
+    .search {
+	font-size: 1em;
+	left: 23vw;
+	margin-top: 1vw;
     }
-
+    .navbar {
+	font-size: 1.8em;
+	padding: 2vw 0vw;
+    }
+    .navbar-links {
+	margin-top: 1.25vw;
+	font-size: .8em;
+    }
 }

@@ -16,18 +16,18 @@
 
     <nav class="navbar navbar-expand-lg navby" role="navigation">
       <a id="brand" href="/">The WegMenu</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><img src="{{ url_for('static', filename='img/icon_dropdown.png' ) }}" alt="x" /></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav">-->
 	{% if 'user' in session %}
 	  <form method="POST" class="search" action="/search">
 	    <input required placeholder="What're you craving?" name="query" class="search-bar" type="text"></input>
 	    <button type="submit">Search</button>
 	  </form>
 	  <ul class="navbar-links">
-	  <p>Welcome, <u>{{ session['user'] }}</u>!</p>
+	  <a href="prefs">Welcome, <u>{{ session['user'] }}</u>!</a>
 	  <li>
 	    <a href="/planner"> My Planner </a>
 	  </li>
@@ -48,7 +48,7 @@
           </li>
 	  </ul>
 	  {% endif %}
-	</div>
+	<!</div>>
     </nav>
     
     {% with messages = get_flashed_messages() %}
