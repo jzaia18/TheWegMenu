@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block body %}
+<div>
+  <div class="horizontal-container">
+    <h1>The WegMenu is designed to assist people with dietary restrictions/preferences, costs, and religious restrictions.</h1>
+  </div>
+     <video loop muted autoplay="autoplay">
+       <source src="../static/videos/Steak.mp4" type="video/mp4">
+	 Your browser does not support the video tag.
+     </video>
+     </div>
+<div class="footer">Footer</div>
+{% endblock %}

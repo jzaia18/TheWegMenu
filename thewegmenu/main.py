@@ -14,6 +14,10 @@ def root():
 def login():
     return render_template("login.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/auth_login", methods = ['POST'])
 def auth_login():
     username = request.form["username"]

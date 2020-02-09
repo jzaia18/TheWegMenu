@@ -1,8 +1,10 @@
 html{
     height: 100%;
+    font-family: "Times New Roman", Times, serif;
 }
 
-body{
+body {
+    font-family: "Times New Roman", Times, serif;
     background-image: url("/static/img/background.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,30 +13,43 @@ body{
 
 /* NAVBAR ----------------------------------*/
 .navbar {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(87,6,37,1) 35%, rgba(206,130,120,1) 100%);
     position: fixed;
     top: 0;
-    overflow: hidden;
     width: 100%;
-    padding: 1em 2em;
+    padding: .5em 1em;
     background-color: #CE8278;
     font-size: 1.25em;
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
-    border-bottom: 1vw #8A6D70
-    box-shadow: 0 0 5vw #8A6D70;
     z-index: 1;
 }
 
-.navbar-nav mr-auto {
+.navbar-links {
+    position: fixed;
+    right: 0vw;
+    overflow: hidden;
+    margin-right: 2vw;
+    display: inline-flex;
+    flex-direction: row;
+    list-style-type: none;
+}
 
+.navbar-links li {
+    float: right;
 }
 
 .navbar a {
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #F0C78A;
+    margin-right: .5em;
+    padding: 0em .5em;
     color: #F7F4EF;
+    text-decoration: none;
 }
 
-.navbar a:hover {
+.navbar-links li a:hover {
     color: yellow;
+    text-shadow: 0 0 .3vw #570625, 0 0 .5vw #F0C78A;
 }
 
 .navbar-toggler{
@@ -50,6 +65,12 @@ body{
     font-size: 1em;
 }
 
+#brand {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
 #logo {
     width: 3vw;
     margin-right: .5vw;
@@ -57,6 +78,7 @@ body{
 
 /* FOOTER ---------------------------------------*/
 .footer {
+    font-family: "Times New Roman", Times, serif;
     postion: absolute;
     bottom: 0;
     left: 0;
@@ -65,14 +87,13 @@ body{
     color: white;
     font-size: 1.5em;
     text-align: center;
-    background-color: #CE8278;
-    border-top: .05em solid #570625;	
+    background: linear-gradient(90deg, rgba(206,130,120,1) 0%, rgba(87,6,37,1) 65%, rgba(2,0,36,1) 100%);
+    background-color: #570625;;
 }
 
 /* PARALLAX --------------------------------------*/
 #paral1 {
-    border-top: .05em solid #8A6D70;
-    border-bottom: .05em solid #8A6D70;
+    -webkit-transition: 5s;
     background-image: url("../img/parallax1.jpeg");
     height: 80%;
     background-attachment: fixed;
@@ -80,27 +101,35 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+#paral1:hover {
+    transition: 2s;
+    background-image: url("../img/parallax1-hover.jpeg");
+}
 
 #paral2 {
-    border-top: .05em solid #8A6D70;
-    border-bottom: .05em solid #8A6D70;
+    -webkit-transition: 5s;	
     background-image: url("../img/parallax2.jpeg");
-    height: 50%;
+    height: 60%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+#paral2:hover {
+    -webkit-transition: 2s;
+    background-image: url("../img/parallax2-hover.jpeg");
+}
+
 /* HOME VIEW COMPONENTS --------------------------*/
 #welcome-message{
-    position: relative;
+    position: absolute;
     text-align: center;
     background-color: #8A6D70;
     color: white;
     margin-top: 18%;
     width: 50%;
-    margin-right: auto;
+    right: 25%;
     margin-left: auto;
     padding: 1vw;
     border-radius: 1em 2em;
@@ -115,15 +144,23 @@ body{
 }
 
 /* CONTAINERS/CONTENT ----------------------------*/
-.divider {
+.divider-left, .divider-right {
     text-align: center;
-    background-color: black;
     color: white;
     width: 100%;
     height: .5vw;
 }
 
 div {
+    width: 100%;
+}
+
+.divider-left {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(87,6,37,1) 35%, rgba(206,130,120,1) 100%);
+}
+
+.divider-right {
+    background: linear-gradient(90deg, rgba(206,130,120,1) 0%, rgba(87,6,37,1) 65%, rgba(2,0,36,1) 100%);
 }
 
 .container {
@@ -177,10 +214,3 @@ div {
     width: 100%;
 }
 
-#myVideo {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    display: block;
-    overflow: hidden;
-}

@@ -1,3 +1,7 @@
+html {
+    height: auto;
+}
+
 .login {
     postion: relative;
     text-align: left;
