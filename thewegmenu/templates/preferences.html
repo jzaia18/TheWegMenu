@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Preferences{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<div>
+    <form action="update_prefs" method="POST">
+        <input type="checkbox" name="vegetarian" value="vegetarian">
+        <label for="vegetarian">Vegetarian</label><br>
+        <input type="checkbox" name="vegan" value="vegan">
+        <label for="vegan">Vegan</label><br>
+        <input type="checkbox" name="kosher" value="kosher">
+        <label for="kosher">Kosher</label><br>
+        <input type="checkbox" name="glutenfree" value="glutenfree">
+        <label for="glutenfree">Gluten Free</label><br>
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
