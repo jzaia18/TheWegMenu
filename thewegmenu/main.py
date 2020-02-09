@@ -67,7 +67,7 @@ def logout():
     session.pop('user')
     return redirect(url_for('root'))
 
-@app.route('/calendar')
+@app.route('/planner')
 @require_login
 def calendar():
     cal = mongo_utils.get_calendar(session['user'])
