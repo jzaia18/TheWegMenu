@@ -37,9 +37,9 @@ def auth_login():
     password = request.form["password"]
     if mongo_utils.authenticate(username, password):
         session["user"] = username
-    else:
-        flash("invalid user or password")
-    return redirect(url_for("root"))
+        return redirect(url_for("root"))
+    flash("invalid user or password")
+    return redirect(url_for("login"))
 
 @app.route("/signup")
 def signup():
@@ -53,9 +53,9 @@ def auth_signup():
     password = request.form["password"]
     if mongo_utils.register(username, password):
         session["user"] = username
-    else:
-        flash("user name already taken")
-    return redirect(url_for("root"))
+        return redirect(url_for("root"))
+    flash("user name already taken")
+    return redirect(url_for("signup"))
 
 @app.route('/logout')
 @require_login
