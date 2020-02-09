@@ -15,18 +15,63 @@
       <th> Image </th>
       <th> Item </th>
       <th> Health Labels </th>
+      <th> </th>
     </tr>
     {% for result in results %}
     <tr>
       <td class="image-col"><img class="search-images" src={{result['image']}} alt={{result['label']}}></td>
       <td><a href={{result['url']}} class="search-item"> {{result['label']}} </a></td>
       <td class="search-labels">
-	{% for label in result['healthLabels'] %}
-	{{label}},
-	{% endfor %}
+        {% for label in result['healthLabels'] %}
+        {{label}},
+        {% endfor %}
+      </td>
+      <td>
+        <div id="{{result['_id']}}-div">
+          <select id="{{result['_id']}}-select">
+            <option value="Sunday"> Sunday</option>
+            <option value="Monday"> Monday</option>
+            <option value="Tuesday"> Tuesday</option>
+            <option value="Wednesday"> Wednesday</option>
+            <option value="Thursday"> Thursday</option>
+            <option value="Friday"> Friday</option>
+            <option value="Saturday"> Saturday</option>
+          </select>
+          <button queryid="{{result['_id']}}" id="{{result['_id']}}-btn" class="add-cal"> Add </button>
+        </div>
       </td>
     </tr>
     {% endfor %}
   </table>
 </div>
+{% endblock %}
+
+
+{% block js %}
+
+<script>
+  function handle_press(e) {
+    var src = e.srcElement;
+    var qid = src.getAttribute("queryid");
+    var selected = $("#" + qid+"-select")[0].value;
+    $.ajax({
+      type: "POST",
+      url: "/add_recipe",
+      data: {
+        recipeid: qid,
+        day: selected
+      },
+      success: function() {
+        src.disabled = true;
+        src.removeEventListener('click', handle_press);
+        src.innerText = "Added!";
+      }
+    });
+  }
+
+  document.querySelectorAll(".add-cal").forEach(item => {
+    item.addEventListener('click', handle_press);
+  });
+</script>
+
 {% endblock %}

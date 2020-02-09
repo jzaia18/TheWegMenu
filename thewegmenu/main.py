@@ -89,10 +89,15 @@ def search():
     query = request.form['query']
     results = mongo_utils.get_recipes_by_food(query, results=5)
 
-    for hit in results:
-        hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
+    # for hit in results:
+    #     hit['ingredientLines'] = recipe_maker.translate(hit['ingredientLines'])
 
     return render_template('search.html', results=results, query=query)
+
+@app.route('/add_recipe', methods = ["POST"])
+def add_recipe():
+    mongo_utils.add_recipe_to_calendar(request.form["recipeid"], request.form["day"], session['user'])
+    return ''
 
 @app.route('/remove_recipe', methods = ['POST'])
 @require_login
