@@ -94,6 +94,11 @@ def search():
 
     return render_template('search.html', results=results, query=query)
 
+@app.route('/add_recipe', methods = ["POST"])
+def add_recipe():
+    mongo_utils.add_recipe_to_calendar(request.form["recipeid"], request.form["day"], session['user'])
+    return ''
+
 @app.route('/remove_recipe', methods = ['POST'])
 @require_login
 def remove_recipe():

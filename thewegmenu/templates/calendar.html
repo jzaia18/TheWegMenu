@@ -8,18 +8,18 @@
 
 {% block body %}
 <div id="weekly-calendar">
-
+<h2>Weekly Meal Planner</h2>
   {% if calendar == None %}
   <h3> You don't have any recipes right now, try searching for some recipes! </h3>
   {% else %}
   {% set DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %}
   <table>
-    <tr>
+    <tr id="days">
       {% for day in DAYS %}
       <th>{{day}}</th>
       {% endfor %}
     </tr>
-    <tr>
+    <tr id="meal-plans">
       {% for day in DAYS %}
       <td>
         <ul>
@@ -31,7 +31,7 @@
             <form method="POST" action="remove_recipe">
               <input type="hidden" value="{{recipe['_id']}}" name="recipe_id">
               <input type="hidden" value="{{day}}" name="day">
-              <input type="submit" value="remove">
+              <input type="submit" value="X">
             </form>
           </li>
           {% endfor %}
