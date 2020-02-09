@@ -8,11 +8,8 @@
 
 
 {% block body %}
-<br />
-<br />
-<br />
 <div class="search-results">
-  <h2><u> Results for:</u> " {{query}} "</h2><br>
+  <h2><u> Results for:</u> {{query}}</h2><br>
   <table>
     <tr>
       <th> Image </th>
@@ -21,7 +18,7 @@
     </tr>
     {% for result in results %}
     <tr>
-      <td><img class="search-images" src={{result['image']}} alt={{result['label']}}></td>
+      <td class="image-col"><img class="search-images" src={{result['image']}} alt={{result['label']}}></td>
       <td><a href={{result['url']}} class="search-item"> {{result['label']}} </a></td>
       <td class="search-labels">
 	{% for label in result['healthLabels'] %}

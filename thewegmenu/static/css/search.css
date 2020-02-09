@@ -3,6 +3,7 @@ body {
 }
 
 .search-results {
+    margin-top: 4vw;
     margin: 5%;
     width: 80%;
     margin-left: auto;
@@ -10,34 +11,34 @@ body {
 }
 
 .search-results h2 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .search-results table, th, td {
     background-color: white;
     font-size: 1.25vw;
-    text-align: center;
-    border: thin solid brown;
+    border: thin solid #570625;
 }
 
 .search-results th {
+    color: white;
     text-shadow: 0 0 .3vw #570625, 0 0 .5vw #CE8278;
     background-color: #CE8278;
-    color: white;
     padding: .5vw;
 }
 
+.search-results td {
+    margin-left: .5vw;
+}
 
 .search-results table {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .search-images {
     border: thin solid #570625;
     width: 10vw;
-    margin: 1vw;
+    margin: .25vw;
 }
 
 .search-item {
@@ -48,4 +49,9 @@ body {
 
 .search-labels {
     font-size: .75em;
+}
+
+.image-col {
+    text-align: center;
+    background-color: #570625;
 }
