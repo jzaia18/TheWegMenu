@@ -35,9 +35,9 @@ def has_gluten(food_info) -> bool:
 def is_kosher(food_info) -> bool:
     if 'kshr' in food_info['name'].lower():
         return True
-    if not has_pork(food_info):
-        return True
-    return False
+    if has_pork(food_info):
+        return False
+    return True
 
 
 def has_nuts(food_info) -> bool:
